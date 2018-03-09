@@ -73,6 +73,7 @@ module FileCache
     end
 
     filename = '/tmp/cache.' + Digest::MD5::hexdigest($0 + variants.to_s) + file_extension
-    File.delete filename
+
+    File.delete filename if File.exist? filename
   end
 end
